@@ -11,5 +11,13 @@ for(let i = 0; i < confs.length; i ++){
         globalConf[tempConf[0]] = tempConf[1]
     }
 }
+//判断绝对or相对路径
+if(globalConf['path_method'] == 'relative'){
+    globalConf.basePath = __dirname + globalConf.path;
+}else {
+    globalConf.basePath = globalConf.path
+}
+
+
 // console.log(globalConf)
 module.exports = globalConf

@@ -16,7 +16,7 @@ server.on('connection',(socket)=>{
     socket.on('data',(data)=>{
         let url = data.toString().split('\r\n')[0].split(' ')[1];
         try{
-            let dataFile = fs.readFileSync(__dirname + globalConf.path + url);
+            let dataFile = fs.readFileSync(globalConf['basePath'] + url);
             socket.write('HTTP/1.1 200OK\r\n\r\n');
             socket.write(dataFile);
         }catch (e) {
